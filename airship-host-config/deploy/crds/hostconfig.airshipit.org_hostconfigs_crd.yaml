@@ -95,6 +95,13 @@ spec:
                     required:
                       - name
                       - value
+                shell:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      command:
+                        type: string
   versions:
     - name: v1alpha1
       served: true
