@@ -14,3 +14,11 @@ spec:
     openssl_info:
       - path: "/etc/kubernetes/pki/ca.crt"
       - path: "/etc/kubernetes/pki/apiserver.crt"
+      - path: "/etc/kubernetes/pki/front-proxy-ca.crt"
+      - path: "/etc/kubernetes/pki/apiserver-kubelet-client.crt"
+      - path: "/etc/kubernetes/pki/front-proxy-client.crt"
+      - path: "/etc/kubernetes/pki/apiserver-etcd-client.crt"
+      - path: "/etc/kubernetes/pki/etcd/ca.crt"
+      - path: "/etc/kubernetes/pki/etcd/server.crt"
+      - path: "/etc/kubernetes/pki/etcd/peer.crt"
+      - path: "/etc/kubernetes/pki/etcd/healthcheck-client.crt"
