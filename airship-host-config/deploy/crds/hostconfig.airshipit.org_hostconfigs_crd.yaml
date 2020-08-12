@@ -95,13 +95,16 @@ spec:
                     required:
                       - name
                       - value
-                shell:
+                openssl_info:
+                  description: "An array of certificate files for which the expiry needs to be checked."
                   type: array
                   items:
                     type: object
                     properties:
-                      command:
+                      path:
                         type: string
+                    required:
+                      - path
   versions:
     - name: v1alpha1
       served: true

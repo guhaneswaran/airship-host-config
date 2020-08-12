@@ -1,24 +1,16 @@
 apiVersion: hostconfig.airshipit.org/v1alpha1
 kind: HostConfig
 metadata:
-  name: example-ulimit
+  name: check-expiry
 spec:
   # Add fields here
   host_groups:
-   - name: "kubernetes.io/hostname"
+   - name: "kubernetes.io/role"
      values:
-      - "dtc-dtc-control-plane-6khdt"
+      - "master"
   sequential: false
-  reexecute: true
-  sysctl:
-   - name: "net.ipv6.route.gc_interval"
-#     value: "10"
-     value: "30"
-  ulimit:
-   - user: "sirisha"
-     type: "hard"
-     item: "cpu"
-#     value: "300"
-     value: "unlimited"
-  shell:
-   command: "/usr/bin/date --date=\"$(openssl x509 -enddate -noout -in /etc/kubernetes/pki/ca.crt|cut -d= -f 2)\" --rfc-3339='date'"
+  reexecute: false
+  config:
+    openssl_info:
+      - path: "/etc/kubernetes/pki/ca.crt"
+      - path: "/etc/kubernetes/pki/apiserver.crt"

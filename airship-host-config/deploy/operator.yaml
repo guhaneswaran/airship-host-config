@@ -17,7 +17,7 @@ spec:
       containers:
         - name: airship-host-config
           # Replace this with the built image name
-          image: "quay.io/sirishagopigiri/airship-host-config:f1"
+          image: "quay.io/sirishagopigiri/airship-host-config:updated_status"
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
           - mountPath: /tmp/ansible-operator/runner

@@ -73,6 +73,8 @@ class CallbackModule(CallbackBase):
             status[task_name]['stderr'] = task_result['stderr']
         if 'msg' in task_result.keys() and task_result['msg'] != '':
             status['msg'] = task_result['msg'].replace('\n', ' ')
+        if 'cmd' in task_result.keys():
+            status[task_name]['cmd'] = task_result['cmd']
         if 'results' in task_result.keys() and len(task_result['results']) != 0:
             status[task_name]['results'] = list()
             for res in task_result['results']:
