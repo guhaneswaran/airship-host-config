@@ -1,6 +1,8 @@
 apiVersion: hostconfig.airshipit.org/v1alpha1
 kind: HostConfig
 metadata:
+  annotations:
+    ansible.operator-sdk/reconcile-period: "1d"
   name: check-expiry
 spec:
   # Add fields here
@@ -11,14 +13,5 @@ spec:
   sequential: false
   reexecute: false
   config:
-    openssl_info:
-      - path: "/etc/kubernetes/pki/ca.crt"
-      - path: "/etc/kubernetes/pki/apiserver.crt"
-      - path: "/etc/kubernetes/pki/front-proxy-ca.crt"
-      - path: "/etc/kubernetes/pki/apiserver-kubelet-client.crt"
-      - path: "/etc/kubernetes/pki/front-proxy-client.crt"
-      - path: "/etc/kubernetes/pki/apiserver-etcd-client.crt"
-      - path: "/etc/kubernetes/pki/etcd/ca.crt"
-      - path: "/etc/kubernetes/pki/etcd/server.crt"
-      - path: "/etc/kubernetes/pki/etcd/peer.crt"
-      - path: "/etc/kubernetes/pki/etcd/healthcheck-client.crt"
+    kubeadm:
+      - command: "alpha certs check-expiration"
