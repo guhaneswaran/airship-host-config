@@ -2,7 +2,7 @@ apiVersion: hostconfig.airshipit.org/v1alpha1
 kind: HostConfig
 metadata:
   annotations:
-    ansible.operator-sdk/reconcile-period: "1d"
+    ansible.operator-sdk/reconcile-period: "15s"
   name: check-expiry
 spec:
   # Add fields here

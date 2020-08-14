@@ -95,16 +95,16 @@ spec:
                     required:
                       - name
                       - value
-                openssl_info:
-                  description: "An array of certificate files for which the expiry needs to be checked."
+                kubeadm:
+                  description: "kubeadm command to check the certificate expiry details"
                   type: array
                   items:
                     type: object
                     properties:
-                      path:
+                      command:
                         type: string
                     required:
-                      - path
+                      - command
   versions:
     - name: v1alpha1
       served: true
